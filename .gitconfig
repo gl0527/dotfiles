@@ -1,0 +1,16 @@
+[user]
+        email = gurzolajos27@gmail.com
+        name = gl0527
+[core]
+        excludesFile = .gitignore
+        editor = vim
+[alias]
+        lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        s = status -sb
+        st = stash
+        rank = shortlog -sn --no-merges
+        dw = diff
+        di = diff --cached
+        da = diff HEAD
+        ds = diff --stat
+        parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
