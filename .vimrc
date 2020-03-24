@@ -63,6 +63,8 @@ set ignorecase
 set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
+hi Search ctermbg=darkgrey
+hi Search ctermfg=yellow
 
 " Remap help key.
 inoremap <F1> <ESC>:set invfullscreen<CR>a
