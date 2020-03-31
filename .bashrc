@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# allow alias usage with sudo
+alias sudo='sudo '
+
 # clear screen and empty buffer
 alias c="clear; printf '\033[3J'"
 
