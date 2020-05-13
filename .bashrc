@@ -116,8 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# allow alias usage with sudo
+# allow alias expansion with sudo - with the help of the trailing space
 alias sudo='sudo '
+
+# allow alias expansion with gdb - with the help of the trailing space
+alias gdba='gdb --args '
 
 # clear screen and empty buffer
 alias c="clear; printf '\033[3J'"
