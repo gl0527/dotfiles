@@ -120,7 +120,7 @@ fi
 alias sudo='sudo '
 
 # allow alias expansion with gdb - with the help of the trailing space
-alias gdba='gdb --args '
+alias gdba='make -j`nproc` && gdb --args '
 
 # clear screen and empty buffer
 alias c="clear; printf '\033[3J'"
