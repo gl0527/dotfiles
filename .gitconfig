@@ -5,7 +5,7 @@
         excludesFile = .gitignore
         editor = vim
 [alias]
-        lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         s = status -sb
         st = stash
         rank = shortlog -sn --no-merges
