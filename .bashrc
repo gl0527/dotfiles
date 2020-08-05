@@ -128,11 +128,11 @@ alias sudo='sudo '
 alias gdba='make -j`nproc` && gdb --args '
 
 # clear screen and empty buffer
-alias c="clear; printf '\033[3J'"
+alias c='clear; printf "\033[3J"'
 
 # set cargometer env
-export CM_PREFIX_ROOT="/opt/cm"
-export CM_COMMON_FLAGS="-DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${CM_PREFIX_ROOT} -DCMAKE_PREFIX_PATH=${CMAKE_INSTALL_PREFIX}"
+CM_PREFIX_ROOT='/opt/cm'
+CM_COMMON_FLAGS='-DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${CM_PREFIX_ROOT} -DCMAKE_PREFIX_PATH=${CM_PREFIX_ROOT}'
 alias cmdbg='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug'
 alias cmrwdi='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo'
 alias cmmsr='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel'
