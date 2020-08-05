@@ -116,6 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+mcd() {
+    mkdir -pv $1
+    cd $1
+}
+
 # allow alias expansion with sudo - with the help of the trailing space
 alias sudo='sudo '
 
