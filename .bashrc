@@ -131,10 +131,16 @@ alias gdba='make -j`nproc` && gdb --args '
 alias c='clear; printf "\033[3J"'
 
 # set cargometer env
-CM_PREFIX_ROOT='/opt/cm'
-CM_COMMON_FLAGS='-DCMAKE_CXX_STANDARD=14 -DCMAKE_INSTALL_PREFIX=${CM_PREFIX_ROOT} -DCMAKE_PREFIX_PATH=${CM_PREFIX_ROOT}'
-alias cmdbg='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug'
-alias cmrwdi='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo'
-alias cmmsr='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel'
-alias cmrel='cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Release'
+CM_PREFIX_ROOT="/opt/cm"
+CM_COMMON_FLAGS="-DCMAKE_CXX_STANDARD=14                    \
+                 -DCMAKE_INSTALL_PREFIX=${CM_PREFIX_ROOT}   \
+                 -DCMAKE_PREFIX_PATH=${CM_PREFIX_ROOT}"
+alias cmdbg="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug"
+alias cmrwdi="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+alias cmmsr="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel"
+alias cmrel="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Release"
+
+alias cmvis='apps/visualization_app/visualization_app   \
+             --config clip_processor.pb                 \
+             --clipprovider.clipdiskreader.path '
 
