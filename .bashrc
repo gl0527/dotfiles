@@ -116,6 +116,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH=$PATH:$HOME/.local/bin/
+
 mcd() {
     mkdir -pv $1
     cd $1
