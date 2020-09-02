@@ -147,3 +147,7 @@ alias cmvis='apps/visualization_app/visualization_app   \
              --config clip_processor.pb                 \
              --clipprovider.clipdiskreader.path '
 
+cmget() {
+    cmclip pull $1
+    cmuid path $1
+}
