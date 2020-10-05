@@ -137,7 +137,8 @@ CM_PREFIX_ROOT="/opt/cm"
 CM_COMMON_FLAGS="-DCMAKE_CXX_STANDARD=14                    \
                  -DCMAKE_INSTALL_PREFIX=${CM_PREFIX_ROOT}   \
                  -DCMAKE_PREFIX_PATH=${CM_PREFIX_ROOT}      \
-                 -DOpenGL_GL_PREFERENCE=LEGACY"
+                 -DOpenGL_GL_PREFERENCE=LEGACY              \
+                 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
 alias cmdbg="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug"
 alias cmrwdi="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 alias cmmsr="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel"
