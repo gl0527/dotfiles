@@ -4,6 +4,10 @@ set nocompatible
 " Turn on syntax highlighting
 syntax on
 
+" Set color scheme
+" These schemes can be found in '/usr/share/vim/vim*/colors/'
+colorscheme ron
+
 set wildmenu
 " TODO: Pick a leader key
 " let mapleader = ","
