@@ -123,6 +123,10 @@ mcd() {
     cd $1
 }
 
+wr() {
+    curl wttr.in/$1
+}
+
 # allow alias expansion with sudo - with the help of the trailing space
 alias sudo='sudo '
 
