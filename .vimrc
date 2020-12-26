@@ -1,88 +1,69 @@
-" Don't try to be vi compatible
-set nocompatible
+"""" Enable Vundle: vim plugin manager
 
-" Turn on syntax highlighting
-syntax on
+" required before Vundle initialization
+set nocompatible        " disable compatibility mode with vi
+" filetype off            " disable filetype detection (but re-enable later, see below)
 
-" Set color scheme
-" These schemes can be found in '/usr/share/vim/vim*/colors/'
-colorscheme ron
+" set the runtime path to include Vundle, and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'wting/rust.vim' " enable syntax highlighting for rust
+" call vundle#end()
 
-set wildmenu
-" TODO: Pick a leader key
-" let mapleader = ","
 
-" Security
-set modelines=0
+"""" Basic Behavior
 
-" Show line numbers
-set nu rnu
+set number              " show line numbers
+set wrap                " wrap lines
+set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw screen only when we need to
+set showmatch           " highlight matching parentheses / brackets [{()}]
+set laststatus=2        " always show statusline (even with only single window)
+set ruler               " show line and column number of the cursor on right side of statusline
+set visualbell          " blink cursor on error, instead of beeping
 
-" Show file stats
-set ruler
 
-" Blink cursor on error instead of beeping (grr)
-set visualbell
+"""" Key Bindings
 
-" Encoding
-set encoding=utf-8
+" move vertically by visual line (don't skip wrapped lines)
+nmap j gj
+nmap k gk
 
-" Whitespace
-set wrap
-set textwidth=119
-set formatoptions=tcqrn1
-set tabstop=4
-set shiftwidth=4
-set expandtab " tabs are spaces
 
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
+"""" Vim Appearance
 
-" Move up/down editor lines
-nnoremap j gj
-nnoremap k gk
+" put colorscheme files in ~/.vim/colors/ or in ~/.config/nvim/colors/
+try
+    colorscheme molokai " good colorschemes: murphy, slate, molokai, badwolf, solarized
+catch
+endtry
 
-" Allow hidden buffers
-set hidden
+" use filetype-based syntax highlighting, ftplugins, and indentation
+syntax enable
+filetype plugin indent on
 
-" Rendering
-set ttyfast
+set cursorline          " highlight current line
 
-" Status bar
-set laststatus=2
 
-" Last line
-set showmode
-set showcmd
+"""" Tab settings
 
-" Searching
-nnoremap / /\v
-vnoremap / /\v
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
-hi Search ctermbg=darkgrey
-hi Search ctermfg=yellow
+set tabstop=4           " width that a <TAB> character displays as
+set expandtab           " convert <TAB> key-presses to spaces
+set shiftwidth=4        " number of spaces to use for each step of (auto)indent
+set softtabstop=4       " backspace after pressing <TAB> will remove up to this many spaces
 
-" Remap help key.
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
+set autoindent          " copy indent from current line when starting a new line
+set smartindent         " even better autoindent (e.g. add indent after '{')
 
-" Textmate holdouts
 
-" Formatting
-map <leader>q gqip
+"""" Search settings
 
-" Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+set ignorecase          " ignore case when searching
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+set smartcase           " try to be smart about cases
+
+" turn off search highlighting with <CR> (carriage-return)
+nnoremap <CR> :nohlsearch<CR><CR>
