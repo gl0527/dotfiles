@@ -64,3 +64,15 @@ set smartcase           " try to be smart about cases
 
 " turn off search highlighting with <CR> (carriage-return)
 nnoremap <CR> :nohlsearch<CR><CR>
+
+
+""" C++
+
+" Save, compile and run
+autocmd filetype cpp nnoremap <F9>
+    \ :w <CR>
+    \ :!g++ -g % -o %:r -std=c++2a -O2 -pedantic -W -Wall -Wextra -Wcast-align
+    \ -Wcast-qual -Wctor-dtor-privacy -Wdisabled-optimization -Wformat=2
+    \ -Winit-self -Wuninitialized -Wmissing-include-dirs -fsanitize=address -fsanitize=undefined
+    \ -Woverloaded-virtual -Wshadow -Wno-sign-conversion -Wsign-promo
+    \ && ./%:r <CR>
