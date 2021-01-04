@@ -76,3 +76,9 @@ autocmd filetype cpp nnoremap <F9>
     \ -Winit-self -Wuninitialized -Wmissing-include-dirs -fsanitize=address -fsanitize=undefined
     \ -Woverloaded-virtual -Wshadow -Wno-sign-conversion -Wsign-promo
     \ && ./%:r <CR>
+
+" Save and generate preprocessor output
+autocmd filetype cpp nnoremap <F2>
+    \ :w <CR>
+    \ :!g++ -E % -o %:r.i <CR>
+    \ :vsp %:r.i <CR>
