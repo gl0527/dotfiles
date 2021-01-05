@@ -82,3 +82,15 @@ autocmd filetype cpp nnoremap <F2>
     \ :w <CR>
     \ :!g++ -E % -o %:r.i <CR>
     \ :vsp %:r.i <CR>
+
+" Save and generate assembly output without optimization
+autocmd filetype cpp nnoremap <F3>
+    \ :w <CR>
+    \ :!g++ -S % -std=c++2a -O0 -o %:r.s <CR>
+    \ :vsp %:r.s <CR>
+
+" Save and generate assembly output with 2nd level optimization
+autocmd filetype cpp nnoremap <F4>
+    \ :w <CR>
+    \ :!g++ -S % -std=c++2a -O2 -o %:r_opt.s <CR>
+    \ :vsp %:r_opt.s <CR>
