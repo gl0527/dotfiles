@@ -119,6 +119,7 @@ fi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export PATH=$PATH:$HOME/.local/bin/
+export TERM=screen-256color
 
 mcd() {
     mkdir -pv $1
