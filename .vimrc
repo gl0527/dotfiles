@@ -66,6 +66,19 @@ set smartcase           " try to be smart about cases
 nnoremap <CR> :nohlsearch<CR><CR>
 
 
+""" Browsing filesystem with netrw
+
+let g:netrw_banner = 0          " remove directory banner
+let g:netrw_liststyle = 3       " tree view
+let g:netrw_browse_split = 4    " open file in previous window
+let g:netrw_altv = 1            " open file in vertical split
+let g:netrw_winsize = 25        " width of directory browser = 25% of the page
+augroup ProjectDrawer           " present file browser on startup
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+
 """ C++
 
 " Save, compile and run
