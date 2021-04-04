@@ -134,6 +134,10 @@ wr() {
     curl wttr.in/$1
 }
 
+tovim() {
+    "$@" | vim -
+}
+
 # allow alias expansion with sudo - with the help of the trailing space
 alias sudo='sudo '
 
