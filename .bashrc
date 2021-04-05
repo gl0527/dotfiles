@@ -131,7 +131,13 @@ mcd() {
 }
 
 wr() {
-    curl wttr.in/$1
+    for i in "$@"
+    do
+        curl wttr.in/"$i"
+        echo -e "\n\n"
+        printf '=%.0s' {1..120}
+        echo -e "\n\n"
+    done
 }
 
 tovim() {
