@@ -36,7 +36,7 @@ nmap k gk
 
 " put colorscheme files in ~/.vim/colors/ or in ~/.config/nvim/colors/
 try
-    colorscheme molokai " good colorschemes: murphy, slate, molokai, badwolf, solarized
+    colorscheme badwolf " good colorschemes: murphy, slate, molokai, badwolf, solarized
 catch
 endtry
 
