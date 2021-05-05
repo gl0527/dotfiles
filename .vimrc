@@ -111,5 +111,6 @@ autocmd filetype cpp nnoremap <F4>
 
 " Build project with make, and open build output
 autocmd filetype cpp nnoremap <F12>
+    \ :make clean<CR>
     \ :make<CR><CR>
     \ :cwindow<CR><CR>
