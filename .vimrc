@@ -32,6 +32,15 @@ nmap j gj
 nmap k gk
 
 
+"""" Autocompletion
+
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+
+
 """" Vim Appearance
 
 " put colorscheme files in ~/.vim/colors/ or in ~/.config/nvim/colors/
