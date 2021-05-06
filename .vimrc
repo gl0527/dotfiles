@@ -118,8 +118,13 @@ autocmd filetype cpp nnoremap <F4>
     \ :!g++ -S % -std=c++2a -O2 -o %:r_opt.s <CR>
     \ :vsp %:r_opt.s <CR>
 
-" Build project with make, and open build output
+" Perform incremental build, and open build output
 autocmd filetype cpp nnoremap <F12>
+    \ :make<CR><CR>
+    \ :cwindow<CR><CR>
+
+" Perform clean build, and open build output
+autocmd filetype cpp nnoremap <S-F12>
     \ :make clean<CR>
     \ :make<CR><CR>
     \ :cwindow<CR><CR>
