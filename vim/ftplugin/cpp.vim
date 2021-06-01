@@ -35,3 +35,9 @@ nnoremap <S-F12>
     \ :make clean<CR>
     \ :make<CR><CR>
     \ :cwindow<CR><CR>
+
+" Comment line
+noremap ,c :s/^/\/\/ /<CR>
+
+" Uncomment line
+noremap ,u :s/^\/\/ //<CR>
