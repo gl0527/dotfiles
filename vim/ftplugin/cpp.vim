@@ -37,7 +37,7 @@ nnoremap <S-F12>
     \ :cwindow<CR><CR>
 
 " Comment line
-noremap ,c :s/^/\/\/ /<CR>
+noremap ,c :s/^/\/\/ /<CR>:nohlsearch<CR>
 
 " Uncomment line
 noremap ,u :s/^\/\/ //<CR>
