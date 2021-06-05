@@ -31,9 +31,10 @@ fi
 # Install vim config
 if command -v vim &> /dev/null
 then
-    mkdir -p $HOME/.vim/ftplugin/
+    mkdir -p $HOME/.vim/{colors,ftplugin}
     ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.vimrc
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.vim/ftplugin/cpp.vim
+    ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.vim/colors/badwolf.vim
 else
     echo "vim not found"
 fi
@@ -41,9 +42,10 @@ fi
 # Install nvim config
 if command -v nvim &> /dev/null
 then
-    mkdir -p $HOME/.config/nvim/ftplugin/
+    mkdir -p $HOME/.config/nvim/{colors,ftplugin}
     ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.config/nvim/init.vim
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.config/nvim/ftplugin/cpp.vim
+    ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.config/nvim/colors/badwolf.vim
 else
     echo "nvim not found"
 fi
