@@ -26,15 +26,10 @@ nnoremap <F4>
     \ :vsp %:r_opt.s <CR>
 
 " Perform incremental build, and open build output
-nnoremap <F12>
-    \ :make<CR><CR>
-    \ :cwindow<CR><CR>
+nnoremap <F12> :silent make\|redraw!\|cw<CR><CR>
 
 " Perform clean build, and open build output
-nnoremap <S-F12>
-    \ :make clean<CR>
-    \ :make<CR><CR>
-    \ :cwindow<CR><CR>
+nnoremap <S-F12> :make clean\|silent make\|redraw!\|cw<CR><CR>
 
 " Comment line
 noremap ,c :s/^/\/\/ /<CR>:nohlsearch<CR>
