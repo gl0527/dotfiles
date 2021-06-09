@@ -32,6 +32,10 @@ set noswapfile          " disable swap file generation
 nmap j gj
 nmap k gk
 
+" faster quickfix navigation
+noremap <F7> :cn<CR>
+noremap <S-F7> :cp<CR>
+
 
 """" Vim Appearance
 
