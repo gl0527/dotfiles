@@ -36,3 +36,6 @@ noremap ,c :s/^/\/\/ /<CR>:nohlsearch<CR>
 
 " Uncomment line
 noremap ,u :s/^\/\/ //<CR>
+
+" Debug
+noremap <F5> :Termdebug<CR>

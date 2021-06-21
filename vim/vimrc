@@ -83,3 +83,10 @@ augroup ProjectDrawer           " present file browser on startup
   autocmd!
   autocmd VimEnter * :Lex
 augroup END
+
+
+""" Debugging code with termdebug
+
+packadd termdebug
+let g:termdebug_wide=1
+let g:termdebug_popup=0
