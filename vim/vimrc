@@ -36,6 +36,9 @@ nmap k gk
 nnoremap J ddp
 nnoremap K ddkP
 
+" get buffer list quickly
+nnoremap <TAB> :b<SPACE>
+
 " faster quickfix navigation
 noremap <F7> :cn<CR>
 noremap <S-F7> :cp<CR>
