@@ -13,6 +13,7 @@
         di = diff --cached
         da = diff HEAD
         ds = diff --stat
+        dc = "!f() { git diff \"$1^\" \"$1\"; }; f"
         parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//' #"
         br = branch
         bra = branch -a
