@@ -14,3 +14,7 @@ noremap ,u :s/^\/\/ //<CR>
 noremap <F5>
     \ :Termdebug<CR><C-w>l
     \ :vertical resize +35<CR><C-w>h
+
+" Set breakpoints
+nnoremap <F9> :Break<CR>
+nnoremap <S-F9> :Clear<CR>
