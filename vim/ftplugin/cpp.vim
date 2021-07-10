@@ -11,7 +11,7 @@ noremap ,c :s/^/\/\/ /<CR>:nohlsearch<CR>
 noremap ,u :s/^\/\/ //<CR>
 
 " Debug
-noremap <F5>
+nnoremap <F5>
     \ :Termdebug<CR><C-w>l
     \ :vertical resize +35<CR><C-w>h
 
