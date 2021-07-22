@@ -35,6 +35,7 @@ then
     ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.vimrc
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.vim/ftplugin/cpp.vim
     ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.vim/colors/badwolf.vim
+    ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.vim/colors/zenburn.vim
 else
     echo "vim not found"
 fi
@@ -46,6 +47,7 @@ then
     ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.config/nvim/init.vim
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.config/nvim/ftplugin/cpp.vim
     ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.config/nvim/colors/badwolf.vim
+    ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.config/nvim/colors/zenburn.vim
 else
     echo "nvim not found"
 fi

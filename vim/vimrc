@@ -46,9 +46,12 @@ noremap <S-F7> :cp<CR>
 
 """" Vim Appearance
 
+" set 256-color mode
+set t_Co=256
+
 " put colorscheme files in ~/.vim/colors/ or in ~/.config/nvim/colors/
 try
-    colorscheme badwolf " good colorschemes: murphy, slate, molokai, badwolf, solarized
+    colorscheme zenburn " good colorschemes: murphy, slate, molokai, badwolf, solarized
 catch
 endtry
 
