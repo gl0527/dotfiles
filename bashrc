@@ -142,7 +142,7 @@ wr() {
 }
 
 tovim() {
-    "$@" | vim -
+    "$@" | view -
 }
 
 # allow alias expansion with sudo - with the help of the trailing space
