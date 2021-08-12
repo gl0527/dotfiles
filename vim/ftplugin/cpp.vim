@@ -2,6 +2,7 @@
 nnoremap <F12> :silent make\|redraw!\|cw<CR><CR>
 
 " Perform clean build, and open build output
+nnoremap <S-F12> :make clean\|silent make\|redraw!\|cw<CR><CR>
 " F24 is S-F12 for neovim
 nnoremap <F24> :make clean\|silent make\|redraw!\|cw<CR><CR>
 
@@ -18,5 +19,6 @@ nnoremap <F5>
 
 " Set breakpoints
 nnoremap <F9> :Break<CR>
+nnoremap <S-F9> :Clear<CR>
 " F21 is S-F9 for neovim
 nnoremap <F21> :Clear<CR>

@@ -41,6 +41,7 @@ nnoremap <TAB> :b<SPACE>
 
 " faster quickfix navigation
 noremap <F7> :cn<CR>
+noremap <S-F7> :cp<CR>
 " F19 is S-F7 for neovim
 noremap <F19> :cp<CR>
 
