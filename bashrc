@@ -165,12 +165,3 @@ alias cmdbg="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug"
 alias cmrwdi="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 alias cmmsr="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel"
 alias cmrel="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Release"
-
-alias cmvis='apps/visualization_app/visualization_app   \
-             --config clip_processor.pb                 \
-             --clipprovider.clipdiskreader.path '
-
-cmget() {
-    cmclip pull $1
-    cmuid path $1
-}
