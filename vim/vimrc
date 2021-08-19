@@ -89,7 +89,7 @@ nnoremap <CR> :nohlsearch<CR><CR>
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested folds max
-set foldmethod=syntax   " folding based on syntax
+set foldmethod=indent   " folding based on indentation level
 
 " Toggle folding
 nnoremap <SPACE> za
