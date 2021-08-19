@@ -84,6 +84,17 @@ set smartcase           " try to be smart about cases
 nnoremap <CR> :nohlsearch<CR><CR>
 
 
+"""" Folding
+
+set foldenable          " enable folding
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested folds max
+set foldmethod=syntax   " folding based on syntax
+
+" Toggle folding
+nnoremap <SPACE> za
+
+
 """ Browsing filesystem with netrw
 
 let g:netrw_banner = 0          " remove directory banner
