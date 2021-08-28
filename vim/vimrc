@@ -26,6 +26,23 @@ set visualbell          " blink cursor on error, instead of beeping
 set noswapfile          " disable swap file generation
 
 
+"""" Status line
+
+set statusline=
+" Buffer number
+set statusline+=[\ %n\ ]
+" File description
+set statusline+=\ %f
+" Filetype
+set statusline+=\ %y
+" File encoding
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" File format
+set statusline+=\ [%{&fileformat}]
+" Line, column and percentage
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+
+
 """" Key Bindings
 
 " move vertically by visual line (don't skip wrapped lines)
