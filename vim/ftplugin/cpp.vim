@@ -22,3 +22,6 @@ nnoremap <F9> :Break<CR>
 nnoremap <S-F9> :Clear<CR>
 " F21 is S-F9 for neovim
 nnoremap <F21> :Clear<CR>
+
+" Switch between header and source
+nnoremap <F4> :ClangdSwitchSourceHeader<CR>
