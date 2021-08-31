@@ -51,7 +51,7 @@ then
     ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.config/nvim/colors/badwolf.vim
     ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.config/nvim/colors/zenburn.vim
     mkdir -p $HOME/.config/nvim/bundle/
-    cp -rv $SCRIPT_DIR/vim/Vundle.vim/ $HOME/.config/nvim/bundle/Vundle.vim/
+    cp -r $SCRIPT_DIR/vim/Vundle.vim/ $HOME/.config/nvim/bundle/Vundle.vim/
 else
     echo "nvim not found"
 fi
