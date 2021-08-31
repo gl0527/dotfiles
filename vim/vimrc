@@ -129,3 +129,8 @@ nnoremap <silent> ,f :Lex!<CR>
 packadd termdebug
 let g:termdebug_wide=1
 let g:termdebug_popup=0
+
+
+"""" LSP
+
+lua require('lspconfig').clangd.setup{}
