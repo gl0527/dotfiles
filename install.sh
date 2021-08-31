@@ -36,8 +36,8 @@ then
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.vim/ftplugin/cpp.vim
     ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.vim/colors/badwolf.vim
     ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.vim/colors/zenburn.vim
-    mkdir -p $HOME/.vim/bundle/
-    cp -r $SCRIPT_DIR/vim/Vundle.vim/ $HOME/.vim/bundle/Vundle.vim/
+    mkdir -p $HOME/.vim/bundle
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 else
     echo "vim not found"
 fi
@@ -50,8 +50,8 @@ then
     ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.config/nvim/ftplugin/cpp.vim
     ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.config/nvim/colors/badwolf.vim
     ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.config/nvim/colors/zenburn.vim
-    mkdir -p $HOME/.config/nvim/bundle/
-    cp -r $SCRIPT_DIR/vim/Vundle.vim/ $HOME/.config/nvim/bundle/Vundle.vim/
+    mkdir -p $HOME/.config/nvim/bundle
+    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.config/nvim/bundle/Vundle.vim
 else
     echo "nvim not found"
 fi
