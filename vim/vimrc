@@ -2,14 +2,17 @@
 
 " required before Vundle initialization
 set nocompatible        " disable compatibility mode with vi
-" filetype off            " disable filetype detection (but re-enable later, see below)
+filetype off            " disable filetype detection (but re-enable later, see below)
 
 " set the runtime path to include Vundle, and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'VundleVim/Vundle.vim'
-" Plugin 'wting/rust.vim' " enable syntax highlighting for rust
-" call vundle#end()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plugin 'nvim-treesitter/playground'
+Plugin 'neovim/nvim-lspconfig'
+call vundle#end()
+filetype plugin indent on
 
 
 """" Basic Behavior
@@ -76,7 +79,6 @@ endtry
 
 " use filetype-based syntax highlighting, ftplugins, and indentation
 syntax enable
-filetype plugin indent on
 
 
 """" Tab settings
