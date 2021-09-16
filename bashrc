@@ -165,3 +165,5 @@ alias cmdbg="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Debug"
 alias cmrwdi="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=RelWithDebInfo"
 alias cmmsr="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=MinSizeRel"
 alias cmrel="cmake ${CM_COMMON_FLAGS} -DCMAKE_BUILD_TYPE=Release"
+
+export PATH=$PATH:$HOME/ws/cmake-3.21.2-linux-x86_64/bin
