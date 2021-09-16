@@ -1,6 +1,6 @@
 [user]
-        email = gurzolajos27@gmail.com
-        name = gl0527
+        email = lajos.gurzo@ibeo-as.com
+        name = Lajos Gurzo
 [core]
         excludesFile = .gitignore
         editor = vi
@@ -21,3 +21,5 @@
         brD = branch -D
         co = checkout
         cob = checkout -b
+[submodule]
+	recurse = true
