@@ -132,6 +132,11 @@ let g:termdebug_wide=1
 let g:termdebug_popup=0
 
 
+"""" Terminal
+
+tnoremap <Esc> <C-\><C-n>
+
+
 """" LSP
 
 lua << EOF
