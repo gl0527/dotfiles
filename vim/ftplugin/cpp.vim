@@ -7,10 +7,10 @@ nnoremap <S-F12> :make clean\|silent make\|redraw!\|cw<CR><CR>
 nnoremap <F24> :make clean\|silent make\|redraw!\|cw<CR><CR>
 
 " Comment line
-noremap ,c :s/^/\/\/ /<CR>:nohlsearch<CR>
+noremap ,c :s/^/\/\//<CR>:nohlsearch<CR>
 
 " Uncomment line
-noremap ,u :s/^\/\/ //<CR>
+noremap ,u :s/\/\///<CR>
 
 " Debug
 nnoremap <F5>
