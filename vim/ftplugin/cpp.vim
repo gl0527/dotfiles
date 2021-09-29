@@ -25,3 +25,6 @@ nnoremap <F21> :Clear<CR>
 
 " Switch between header and source
 nnoremap <F4> :ClangdSwitchSourceHeader<CR>
+
+" Apply clang-format rules
+nnoremap <F3> :!clang-format -style=file -i %<CR><CR>:redraw!<CR>
