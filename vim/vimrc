@@ -66,6 +66,9 @@ noremap <S-F7> :cp<CR>
 " F19 is S-F7 for neovim
 noremap <F19> :cp<CR>
 
+nnoremap ,, :edit $MYVIMRC<CR>
+nnoremap ,. :source $MYVIMRC<CR>
+
 
 """" Vim Appearance
 
