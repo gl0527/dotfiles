@@ -111,9 +111,6 @@ set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested folds max
 set foldmethod=indent   " folding based on indentation level
 
-" Toggle folding
-nnoremap <SPACE> za
-
 
 """ Browsing filesystem with netrw
 
