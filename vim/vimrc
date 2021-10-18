@@ -66,6 +66,9 @@ noremap <S-F7> :cp<CR>
 " F19 is S-F7 for neovim
 noremap <F19> :cp<CR>
 
+nnoremap ,, :edit $MYVIMRC<CR>
+nnoremap ,. :source $MYVIMRC<CR>
+
 
 """" Vim Appearance
 
@@ -111,9 +114,6 @@ set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested folds max
 set foldmethod=indent   " folding based on indentation level
 
-" Toggle folding
-nnoremap <SPACE> za
-
 
 """ Browsing filesystem with netrw
 
@@ -122,7 +122,7 @@ let g:netrw_liststyle = 3       " tree view
 let g:netrw_browse_split = 4    " open file in previous window
 let g:netrw_altv = 1            " open file in vertical split
 let g:netrw_winsize = 15        " width of directory browser = 15% of the page
-nnoremap <silent> ,f :Lex!<CR>
+nnoremap <silent> ,l :Lex!<CR>
 
 
 """ Debugging code with termdebug
