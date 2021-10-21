@@ -8,7 +8,7 @@ filetype off            " disable filetype detection (but re-enable later, see b
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plugin 'nvim-treesitter/nvim-treesitter'
 Plugin 'nvim-treesitter/playground'
 Plugin 'neovim/nvim-lspconfig'
 Plugin 'hrsh7th/nvim-compe'
