@@ -72,6 +72,9 @@ noremap <F19> :cp<CR>
 nnoremap ,, :edit $MYVIMRC<CR>
 nnoremap ,. :source $MYVIMRC<CR>
 
+nnoremap ,h :%!xxd<CR>
+nnoremap ,H :%!xxd -r<CR>
+
 
 """" Vim Appearance
 
