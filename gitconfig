@@ -19,5 +19,5 @@
         bra = branch -a
         brd = branch -d
         brD = branch -D
-        co = checkout
+        co = checkout --recurse-submodules
         cob = checkout -b
