@@ -17,4 +17,11 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }                                                                 -- Statusline written in lua.
+  use 'hrsh7th/cmp-nvim-lsp'                                        -- A completion engine written in lua.
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'L3MON4D3/LuaSnip'                                            -- Snippet engine.
+  use 'saadparwaiz1/cmp_luasnip'
 end)
