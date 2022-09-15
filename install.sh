@@ -30,30 +30,10 @@ else
     echo "tmux not found"
 fi
 
-# Install vim config
-if command -v vim &> /dev/null
-then
-    mkdir -p $HOME/.vim/{colors,ftplugin}
-    ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.vimrc
-    ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.vim/ftplugin/cpp.vim
-    ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.vim/colors/badwolf.vim
-    ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.vim/colors/zenburn.vim
-    mkdir -p $HOME/.vim/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-else
-    echo "vim not found"
-fi
-
 # Install nvim config
 if command -v nvim &> /dev/null
 then
-    mkdir -p $HOME/.config/nvim/{colors,ftplugin}
-    ln -sfv $SCRIPT_DIR/vim/vimrc $HOME/.config/nvim/init.vim
-    ln -sfv $SCRIPT_DIR/vim/ftplugin/cpp.vim $HOME/.config/nvim/ftplugin/cpp.vim
-    ln -sfv $SCRIPT_DIR/vim/colors/badwolf.vim $HOME/.config/nvim/colors/badwolf.vim
-    ln -sfv $SCRIPT_DIR/vim/colors/zenburn.vim $HOME/.config/nvim/colors/zenburn.vim
-    mkdir -p $HOME/.config/nvim/bundle
-    git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.config/nvim/bundle/Vundle.vim
+    ln -sfv $SCRIPT_DIR/nvim $HOME/.config/nvim
 else
     echo "nvim not found"
 fi
