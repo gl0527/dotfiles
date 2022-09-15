@@ -22,6 +22,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
-  use 'L3MON4D3/LuaSnip'                                            -- Snippet engine.
-  use 'saadparwaiz1/cmp_luasnip'
+  use 'SirVer/ultisnips'                                            -- Snippet engine.
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
 end)
