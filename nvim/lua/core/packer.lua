@@ -24,4 +24,5 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'SirVer/ultisnips'                                            -- Snippet engine.
   use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'preservim/nerdcommenter'                                     -- Commenter.
 end)
