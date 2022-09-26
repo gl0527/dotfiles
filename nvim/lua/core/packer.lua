@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'                                      -- Package manager.
     use 'folke/tokyonight.nvim'                                       -- Fancy color scheme.
     use 'neovim/nvim-lspconfig'                                       -- Configurations for nvim LSP.
+    use 'nathom/filetype.nvim'                                        -- Replacement for filetype.vim, which is very slow on startup.
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }   -- Fuzzy finder.
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
