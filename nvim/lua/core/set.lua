@@ -20,3 +20,33 @@ vim.opt.synmaxcol = 180
 vim.opt.scrolljump = 5
 
 vim.g.mapleader = " "
+
+-- Disable unused built-in plugins.
+local disabled_built_ins = {
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "matchit",
+    "matchparen",
+    "netrw",
+    "netrwFileHandlers",
+    "netrwPlugin",
+    "netrwSettings",
+    "remote_plugins",
+    "rrhelper",
+    "shada_plugin",
+    "spellfile_plugin",
+    "tar",
+    "tarPlugin",
+    "tutor_mode_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+    vim.g["loaded_" .. plugin] = 1
+end
