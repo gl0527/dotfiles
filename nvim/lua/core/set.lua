@@ -1,25 +1,28 @@
-vim.opt.guicursor = ""
+vim.g.mapleader = " "
 
+vim.opt.autoindent = true
+vim.opt.backup = false
+vim.opt.errorbells = false
+vim.opt.expandtab = true
+vim.opt.foldenable = false
+vim.opt.guicursor = ""
+vim.opt.hlsearch = false
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.lazyredraw = true
 vim.opt.nu = true
 vim.opt.rnu = true
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-
-vim.opt.smartindent = true
-
-vim.opt.wrap = false
-
-vim.opt.swapfile = false
-vim.opt.lazyredraw = true
-vim.opt.synmaxcol = 180
 vim.opt.scrolljump = 5
-
-vim.g.mapleader = " "
+vim.opt.shiftwidth = 4
+vim.opt.showmode = false
+vim.opt.smartcase = true
+vim.opt.smartindent = true
+vim.opt.softtabstop = 4
+vim.opt.swapfile = false
+vim.opt.synmaxcol = 180
+vim.opt.tabstop = 4
+vim.opt.wrap = false
+vim.opt.writebackup = false
 
 -- Disable unused built-in plugins.
 local disabled_built_ins = {
