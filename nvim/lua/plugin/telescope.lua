@@ -33,9 +33,7 @@ require('telescope').setup {
 
 require('telescope').load_extension('fzf')
 
-local nnoremap = require("core.keymap").nnoremap
-
-nnoremap("<leader>ff", "<cmd>Telescope find_files<CR>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<CR>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<CR>")
-nnoremap("<leader>fh", "<cmd>Telescope help_tags<CR>")
+vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<CR>', {noremap = true, silent = true})
