@@ -2,69 +2,21 @@ local dap = require('dap')
 local dapui = require("dapui")
 local opts = { noremap = true, silent = true }
 
-dapui.setup({
-  icons = { expanded = "", collapsed = "" },
-  floating = { border = nil },
-  windows = { indent = 2 },
-  expand_lines = false,
-  layouts = {
-    --{
-    --  elements = {
-    --    "console",
-    --    --"repl"
-    --  },
-    --  size = 0.3,
-    --  position = "left",
-    --},
-    {
-      elements = {
-        "scopes",
-        --"breakpoints",
-        --"stacks",
-        --"watches",
-      },
-      size = 0.3,
-      position = "bottom",
-    },
-  },
-  --mappings = {
-  --  expand = { "<cr>", "<2-LeftMouse>" },
-  --  open = "o",
-  --  remove = "d",
-  --  edit = "e",
-  --  repl = "r",
-  --  toggle = "t",
-  --},
-})
+dapui.setup()
 
-vim.keymap.set("n", "<leader>C", dap.continue, opts)
-vim.keymap.set("n", "<leader>c", dap.step_over, opts)
-vim.keymap.set("n", "<leader>v", dap.step_into, opts)
-vim.keymap.set("n", "<leader>V", dap.step_out, opts)
-vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, opts)
-vim.keymap.set("n", "<leader>B", dap.clear_breakpoints, opts)
-vim.keymap.set("n", "<leader>x", dap.reverse_continue, opts)
-vim.keymap.set("n", "<leader>X", dap.terminate, opts)
-vim.keymap.set("n", "<leader>e", dapui.eval, opts)
-vim.keymap.set("n", "<leader>E", dapui.toggle, opts)
-vim.keymap.set("n", "<leader>p", dap.pause, opts)
-vim.keymap.set("n", "<leader>r", dap.repl.toggle, opts)
-vim.keymap.set("n", "<leader>R", dap.run_last, opts)
-vim.keymap.set("n", "<leader>u", dap.up, opts)
-vim.keymap.set("n", "<leader>d", dap.down, opts)
-vim.keymap.set("n", "X", function()
-      dapui.float_element("console", {
-      width = vim.api.nvim_get_option("columns"),
-      height = vim.api.nvim_get_option("lines"),
-      enter = false
-    })
-    end,
-    { noremap = false, silent = true })
-local widgets = require("dap.ui.widgets")
-vim.keymap.set("n", "<leader>h", widgets.hover, opts)
-vim.keymap.set("n", "<C-x>", function()
-  widgets.centered_float(widgets.scopes)
-end, opts)
+vim.keymap.set("n", "<F17>", dap.continue, opts) -- Shift + F5
+vim.keymap.set("n", "<F41>", dap.run_last, opts) -- Ctrl + Shift + F5
+vim.keymap.set("n", "<F18>", dap.pause, opts) -- Shift + F6
+vim.keymap.set("n", "<F42>", dap.terminate, opts) -- Ctrl + Shift + F6
+vim.keymap.set("n", "<F20>", dap.step_over, opts) -- Shift + F8
+vim.keymap.set("n", "<F23>", dap.step_into, opts) -- Shift + F11
+vim.keymap.set("n", "<F47>", dap.step_out, opts) -- Ctrl + Shift + F11
+vim.keymap.set("n", "<F21>", dap.toggle_breakpoint, opts) -- Shift + F9
+vim.keymap.set("n", "<F45>", dap.clear_breakpoints, opts) -- Ctrl + Shift + F9
+vim.keymap.set("n", "<F19>", dap.up, opts) -- Shift + F7
+vim.keymap.set("n", "<F43>", dap.down, opts) -- Ctrl + Shift + F7
+vim.keymap.set("n", "<F24>", dapui.eval, opts) -- Shift + F12
+vim.keymap.set("n", "<F48>", dapui.toggle, opts) -- Ctrl + Shift + F12
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "Debug", linehl = "", numhl = "" })
 vim.fn.sign_define("DapStopped", { text = "➤", texthl = "DiagnosticInfo", linehl = "", numhl = "" })

@@ -5,7 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use {'wbthomason/packer.nvim'}                                      
+    use {'wbthomason/packer.nvim'}
     -- Speed up loading Lua modules to improve startup time.
     use {'lewis6991/impatient.nvim'}
     -- Replacement for filetype.vim, which is very slow on startup.
