@@ -3,7 +3,7 @@
         name = gl0527
 [core]
         excludesFile = .gitignore
-        editor = vi
+        editor = vim
 [alias]
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         s = status -sb
