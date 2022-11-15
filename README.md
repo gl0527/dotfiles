@@ -2,6 +2,9 @@
 
 ## Installation
 
+1. Install gdb.
+1. Install git.
+1. Install tmux.
 1. Install neovim v0.7.0+.
 1. Install `clangd` and `pyright` on your system. These are the language servers for C++ and Python respectively.
 1. Run [install.sh](/install.sh).
