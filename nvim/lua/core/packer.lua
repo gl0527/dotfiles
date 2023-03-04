@@ -49,11 +49,4 @@ return require('packer').startup(function(use)
         requires = {'mfussenegger/nvim-dap'},
         config = "require('plugin.dap.init')"
     }
-    -- Parser for syntax highlighting.
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-        event = "BufRead",
-        config = "require('plugin.nvim-treesitter')"
-    }
 end)
