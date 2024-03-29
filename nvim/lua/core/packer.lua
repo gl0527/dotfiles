@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
     use {'neovim/nvim-lspconfig', config = "require('plugin.nvim-lspconfig')"}
     -- Highly extendable fuzzy finder.
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = {
             {'nvim-lua/plenary.nvim'},
             {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
