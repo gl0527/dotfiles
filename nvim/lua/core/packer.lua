@@ -8,8 +8,6 @@ return require('packer').startup(function(use)
     use {'wbthomason/packer.nvim'}
     -- Speed up loading Lua modules to improve startup time.
     use {'lewis6991/impatient.nvim'}
-    -- Replacement for filetype.vim, which is very slow on startup.
-    use {'nathom/filetype.nvim'}
     -- Fancy color scheme.
     use {'folke/tokyonight.nvim', config = "vim.cmd('colorscheme tokyonight')"}
     -- Configurations for nvim LSP.
@@ -23,30 +21,6 @@ return require('packer').startup(function(use)
         },
         config = "require('plugin.telescope')"
     }
-    -- Statusline written in lua.
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
-        event = "BufWinEnter",
-        config = "require('plugin.lualine')"
-    }
-    -- A completion engine written in lua.
-    use {
-        'hrsh7th/nvim-cmp',
-        event = "InsertEnter",
-        config = "require('plugin.nvim-cmp')"
-    }
-    use {'hrsh7th/cmp-buffer', after = "nvim-cmp"}
-    use {'hrsh7th/cmp-nvim-lsp', after = "nvim-cmp"}
-    -- Snippet engine.
-    use {'SirVer/ultisnips'}
-    use {'quangnguyen30192/cmp-nvim-ultisnips', after = "nvim-cmp"}
     -- Commenter.
     use {'preservim/nerdcommenter'}
-    -- Debug Adapter Protocol implementation in lua.
-    use {
-        'rcarriga/nvim-dap-ui',
-        requires = {'mfussenegger/nvim-dap'},
-        config = "require('plugin.dap.init')"
-    }
 end)
