@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<F4>', '<cmd>ClangdSwitchSourceHeader<CR>', {noremap = true, silent = true})
-vim.keymap.set('n', '<F5>', '<cmd>silent make<bar>copen 3<CR>', {noremap = true, silent = true})
+vim.keymap.set('n', '<F5>', '<cmd>w<bar>silent make<bar>copen 3<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', '<M-n>', '<cmd>cn<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', '<M-N>', '<cmd>cp<CR>', {noremap = true, silent = true})
 vim.keymap.set('n', '<M-q>', '<cmd>cclose<CR>', {noremap = true, silent = true})
