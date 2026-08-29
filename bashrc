@@ -7,6 +7,15 @@ PS1='[\u@\h \W]\[\e[0;$(($? == 0 ? 32 : 31))m\]\$\[\e[0m\] '
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# Infinite history size and ignore duplicates
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+
+# Append to history instead of overwriting, and save after every command
+shopt -s histappend
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # some ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
