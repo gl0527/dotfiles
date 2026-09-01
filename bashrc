@@ -2,7 +2,7 @@
 ulimit -c unlimited
 
 # Prompt based on the exit code of the last command
-PS1='[\u@\h \W]\[\e[0;$(($? == 0 ? 32 : 31))m\]\$\[\e[0m\] '
+PS1='\[\033[36m\]\u@\h \[\033[34m\]\w \[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
