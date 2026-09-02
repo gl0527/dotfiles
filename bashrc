@@ -1,8 +1,20 @@
 # allow programs dump cores of any size
 ulimit -c unlimited
 
-# Prompt based on the exit code of the last command
-PS1='\[\033[36m\]\u@\h \[\033[34m\]\w \[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
+export GIT_PS1_FILE="/usr/share/git/completion/git-prompt.sh"
+
+# Check if the git prompt script actually exist
+if [ -f "$GIT_PS1_FILE" ]; then
+    # Config __git_ps1
+    export GIT_PS1_SHOWUPSTREAM="auto"
+
+    # Source the git prompt script
+    source "$GIT_PS1_FILE"
+
+    PS1='\[\033[36m\]\u@\h \[\033[34m\]\w$(__git_ps1 " (\[\033[1;33m\]%s\[\033[0;34m\])")\n\[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
+else
+    PS1='\[\033[36m\]\u@\h \[\033[34m\]\w\n\[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
+fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
