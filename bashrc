@@ -1,7 +1,11 @@
 # allow programs dump cores of any size
 ulimit -c unlimited
 
-export GIT_PS1_FILE="/usr/share/git/completion/git-prompt.sh"
+# Ensure Bash processes variables inside the prompt dynamically
+shopt -s promptvars
+
+GIT_PS1_FILE='/usr/share/git/completion/git-prompt.sh'
+PROMPT_COMMAND='__ec_color=$(( $? == 0 ? 32 : 31 ))'
 
 # Check if the git prompt script actually exist
 if [ -f "$GIT_PS1_FILE" ]; then
@@ -11,9 +15,9 @@ if [ -f "$GIT_PS1_FILE" ]; then
     # Source the git prompt script
     source "$GIT_PS1_FILE"
 
-    PS1='\[\033[36m\]\u@\h \[\033[34m\]\w$(__git_ps1 " (\[\033[1;33m\]%s\[\033[0;34m\])")\n\[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
+    PS1='\[\033[36m\]\u@\h:\[\033[34m\]\w$(__git_ps1 " (\001\033[1;33m\002%s\001\033[0;34m\002)")\n\[\033[${__ec_color}m\]> \[\033[0m\]'
 else
-    PS1='\[\033[36m\]\u@\h \[\033[34m\]\w\n\[\033[$(( $? == 0 ? 32 : 31 ))m\]\$ \[\033[0m\]'
+    PS1='\[\033[36m\]\u@\h:\[\033[34m\]\w\n\[\033[${__ec_color}m\]> \[\033[0m\]'
 fi
 
 # colored GCC warnings and errors
@@ -26,7 +30,6 @@ export HISTCONTROL=ignoreboth:erasedups
 
 # Append to history instead of overwriting, and save after every command
 shopt -s histappend
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # some ls aliases
 alias ll='ls -alF'
