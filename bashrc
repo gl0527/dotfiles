@@ -4,7 +4,30 @@ ulimit -c unlimited
 # Ensure Bash processes variables inside the prompt dynamically
 shopt -s promptvars
 
-GIT_PS1_FILE='/usr/share/git/completion/git-prompt.sh'
+# Detect OS information safely
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+fi
+
+# Fallback to ID if ID_LIKE does not exist (fixes root distros like Arch/Debian/Fedora)
+OS_FAMILY="${ID_LIKE:-$ID}"
+
+# Match against the consolidated OS family string
+case "$OS_FAMILY" in
+    *debian*)
+        GIT_PS1_FILE='/usr/lib/git-core/git-sh-prompt'
+        ;;
+    *fedora*|*rhel*|*alpine*|*suse*)
+        GIT_PS1_FILE='/usr/share/git-core/contrib/completion/git-prompt.sh'
+        ;;
+    *arch*)
+        GIT_PS1_FILE='/usr/share/git/completion/git-prompt.sh'
+        ;;
+    *)
+        GIT_PS1_FILE=''
+        ;;
+esac
+
 PROMPT_COMMAND='__ec_color=$(( $? == 0 ? 32 : 31 ))'
 
 # Check if the git prompt script actually exist
@@ -13,7 +36,7 @@ if [ -f "$GIT_PS1_FILE" ]; then
     export GIT_PS1_SHOWUPSTREAM="auto"
 
     # Source the git prompt script
-    source "$GIT_PS1_FILE"
+    . "$GIT_PS1_FILE"
 
     PS1='\[\033[36m\]\u@\h:\[\033[34m\]\w$(__git_ps1 " (\001\033[1;33m\002%s\001\033[0;34m\002)")\n\[\033[${__ec_color}m\]> \[\033[0m\]'
 else
