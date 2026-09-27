@@ -3,8 +3,8 @@
 SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 
 # Install bashrc
-test -f $HOME/.bashrc && echo -e "\nsource $SCRIPT_DIR/bashrc" >> $HOME/.bashrc
-test -f $HOME/.zshrc && echo -e "\nsource $SCRIPT_DIR/bashrc" >> $HOME/.zshrc
+test -f $HOME/.bashrc && echo -e "\n. $SCRIPT_DIR/bashrc" >> $HOME/.bashrc
+test -f $HOME/.zshrc && echo -e "\n. $SCRIPT_DIR/bashrc" >> $HOME/.zshrc
 
 # Install gdb config
 if command -v gdb &> /dev/null
