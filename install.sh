@@ -37,3 +37,11 @@ then
 else
     echo "nvim not found"
 fi
+
+# Install vim config
+if command -v vim &> /dev/null
+then
+    ln -sfv $SCRIPT_DIR/vimrc $HOME/.vimrc
+else
+    echo "vim not found"
+fi
