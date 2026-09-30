@@ -1,61 +1,68 @@
-" Do not be compatible with vi
-set nocompatible
-set nocp
+" ==========================================
+" 1. CORE & LEADER SETTINGS
+" ==========================================
+" Set the <leader> key to space (Must be defined first!)
+let mapleader = " "
 
 " Prevent character encoding issues
 set encoding=utf-8
 
-" Filetype support
-filetype on
-filetype plugin on
-filetype indent on
+" Automatically read a file if it was changed outside of Vim
+set autoread
 
-" Do not keep any history
+" Trigger autoread when changing buffers or holding the cursor still
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * silent! checktime
+
+" Filetype support (Combines detection, plugins, and indent)
+filetype plugin indent on
+
+" Turn on syntax highlighting
+syntax on
+
+" ==========================================
+" 2. PERFORMANCE & HISTORY
+" ==========================================
+" Do not keep any history, backups, or swapfiles
 set viminfo='0,:0,<0,@0,f0
 set nobackup
 set nowb
 set noswapfile
+
+" Don't lose unsaved changes when opening a new file
+set hidden
+
+" Don't update the display while executing macros
+set lazyredraw
 
 " Disable bells
 set noerrorbells
 set novisualbell
 set t_vb=
 
-" Turn on syntax highlighting
-syntax on
-
-" Terminal layout fixes
+" ==========================================
+" 3. UI & COLORS
+" ==========================================
 set t_Co=256
-
-" Use full 24-bit colors
 set termguicolors
-
-" Set background type
 set background=dark
-
-" Set colorscheme
 colorscheme habamax
 
-" Don't lose unsaved changes when opening a new file - old buffer will be
-" hidden instead of closed
-set hidden
+set laststatus=2    " Always show statusline
+set ruler           " Show cursor position
+set cursorline      " Highlight current line
+set wrap            " Wrap long lines
 
-" Don't update the display while executing macros
-set lazyredraw
+" Show absolute and relative line numbers together (Hybrid line numbers)
+set number
+set relativenumber
 
-" Indicates a fast terminal connection
-set ttyfast
+" Visual autocomplete for command menu
+set wildmenu wildoptions=pum
 
-" Always show statusline
-set laststatus=2
-
-" Show cursor position
-set ruler
-
-" Highlight current line
-set cursorline
-
-" Smart tab handling
+" ==========================================
+" 4. TEXT FORMATTING & INDENTATION
+" ==========================================
+" Smart tab handling (4 spaces)
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -65,27 +72,15 @@ set expandtab
 set autoindent
 set smartindent
 
-" Show absolute and relative line numbers
-set number
-set relativenumber
-
-" Show matching ({[
-set showmatch
-
-" Edit match pairs for all bracket types
-set matchpairs=(:),\[:\],{:},<:>
-
-" Smart search
+" ==========================================
+" 5. SEARCH & MATCHES
+" ==========================================
 set ignorecase
 set smartcase
-
-" Highlight search results
 set hlsearch
-
-" Highlight search matches while typing
 set incsearch
-
-" Allow backspacing
+set showmatch
+set matchpairs=(:),\[:\],{:},<:>
 set backspace=indent,eol,start
 
 " Set up ripgrep if available
@@ -93,42 +88,43 @@ if executable('rg')
     set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
-" Visual autocomplete for command menu
-set wildmenu wildoptions=pum
-
-" Wrap lines
-set wrap
-
-" Show command in the last line of the screen
-set showcmd
-
-" Set whitespace character colors
-" https://vim.fandom.com/wiki/Xterm256_color_names_for_console_Vim
-highlight SpecialKey ctermfg=238 guifg=#444444
-highlight NonText ctermfg=238 guifg=#444444
-
+" ==========================================
+" 6. WHITESPACE & VISUALS
+" ==========================================
 " Make non-printable characters visible
 set list
 set listchars=tab:▶—,space:·,trail:␣,nbsp:+,extends:>,precedes:<
 
+" Style whitespace characters
+highlight SpecialKey ctermfg=238 guifg=#444444
+highlight NonText ctermfg=238 guifg=#444444
+
 " Highlight trailing whitespaces with red background
 highlight TrailingWhiteSpace ctermbg=red guibg=red
-autocmd BufWinEnter,WinEnter * call matchadd('TrailingWhiteSpace', '\s\+$')
+autocmd BufWinEnter * call clearmatches() | call matchadd('TrailingWhiteSpace', '\s\+$')
 
-" Treat colons as keywords
-autocmd FileType cpp set iskeyword+=:
+" ==========================================
+" 7. AUTOCOMMANDS & COMPILER
+" ==========================================
+" Treat colons as keywords ONLY in C++
+autocmd FileType cpp setlocal iskeyword+=:
 
 " Set compiler
 compiler gcc
 
-" Set the <leader> key to space
-let mapleader = " "
+" Show command in the last line of the screen
+set showcmd
 
+" ==========================================
+" 8. KEY MAPPINGS
+" ==========================================
 " Place search result to the middle of the screen
 nnoremap n nzz
 nnoremap N Nzz
 
+" Move by visual lines rather than logical lines (great for wrapped lines)
 nnoremap j gj
 nnoremap k gk
 
+" Toggle visible whitespace characters easily
 nnoremap <leader>l :set list!<CR>
