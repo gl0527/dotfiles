@@ -13,6 +13,14 @@ set updatetime=2000
 " Automatically read a file if it was changed outside of Vim
 set autoread
 
+" Tell standard Vim to listen to tmux/xterm focus escape sequences
+if !has('nvim') && has('terminal')
+  let &t_fe = "\<Esc>[?1004h"
+  let &t_fd = "\<Esc>[?1004l"
+  execute "set <FocusGained>=\<Esc>[I"
+  execute "set <FocusLost>=\<Esc>[O"
+endif
+
 " Trigger autoread when changing buffers or holding the cursor still
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * silent! checktime
 
