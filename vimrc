@@ -7,6 +7,9 @@ let mapleader = " "
 " Prevent character encoding issues
 set encoding=utf-8
 
+" Set the idle time trigger (2 seconds)
+set updatetime=2000
+
 " Automatically read a file if it was changed outside of Vim
 set autoread
 
