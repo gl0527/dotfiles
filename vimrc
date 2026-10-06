@@ -96,7 +96,8 @@ set backspace=indent,eol,start
 
 " Set up ripgrep if available
 if executable('rg')
-    set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 endif
 
 " ==========================================
@@ -139,3 +140,9 @@ nnoremap k gk
 
 " Toggle visible whitespace characters easily
 nnoremap <leader>l :set list!<CR>
+
+" Grep
+nnoremap <leader>g :grep!  \| copen<C-Left><C-Left><Left>
+
+" Grep word under cursor
+nnoremap <leader>G :grep! <cword><CR>:copen<CR>
