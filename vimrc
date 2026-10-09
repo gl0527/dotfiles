@@ -56,7 +56,7 @@ set t_vb=
 set t_Co=256
 set termguicolors
 set background=dark
-colorscheme habamax
+colorscheme catppuccin
 
 set laststatus=2    " Always show statusline
 set ruler           " Show cursor position
@@ -111,7 +111,6 @@ set listchars=tab:▶—,space:·,trail:␣,nbsp:+,extends:>,precedes:<
 " Style whitespace characters
 highlight SpecialKey ctermfg=238 guifg=#444444
 highlight NonText ctermfg=238 guifg=#444444
-highlight ColorColumn ctermbg=235 guibg=#262626
 
 " Highlight trailing whitespaces with red background
 highlight TrailingWhiteSpace ctermbg=red guibg=red
