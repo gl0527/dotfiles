@@ -148,6 +148,9 @@ nnoremap N Nzz
 nnoremap j gj
 nnoremap k gk
 
+" Clear search highlights
+nnoremap <silent> <leader>h :noh<CR>
+
 " Toggle visible whitespace characters easily
 nnoremap <leader>l :set list!<CR>
 
