@@ -61,6 +61,7 @@ colorscheme habamax
 set laststatus=2    " Always show statusline
 set ruler           " Show cursor position
 set cursorline      " Highlight current line
+set colorcolumn=120
 set wrap            " Wrap long lines
 
 " Show absolute and relative line numbers together (Hybrid line numbers)
@@ -110,6 +111,7 @@ set listchars=tab:▶—,space:·,trail:␣,nbsp:+,extends:>,precedes:<
 " Style whitespace characters
 highlight SpecialKey ctermfg=238 guifg=#444444
 highlight NonText ctermfg=238 guifg=#444444
+highlight ColorColumn ctermbg=235 guibg=#262626
 
 " Highlight trailing whitespaces with red background
 highlight TrailingWhiteSpace ctermbg=red guibg=red
