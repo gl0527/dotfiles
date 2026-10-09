@@ -1,5 +1,5 @@
 " ==========================================
-" 1. CORE & LEADER SETTINGS
+" CORE & LEADER SETTINGS
 " ==========================================
 " Set the <leader> key to space (Must be defined first!)
 let mapleader = " "
@@ -31,7 +31,7 @@ filetype plugin indent on
 syntax on
 
 " ==========================================
-" 2. PERFORMANCE & HISTORY
+" PERFORMANCE & HISTORY
 " ==========================================
 " Do not keep any history, backups, or swapfiles
 set viminfo='0,:0,<0,@0,f0
@@ -51,18 +51,27 @@ set novisualbell
 set t_vb=
 
 " ==========================================
-" 3. UI & COLORS
+" UI & COLORS
 " ==========================================
 set t_Co=256
 set termguicolors
 set background=dark
 colorscheme catppuccin
 
-set laststatus=2    " Always show statusline
-set ruler           " Show cursor position
-set cursorline      " Highlight current line
+" Always show statusline
+set laststatus=2
+
+" Show cursor position
+set ruler
+
+" Highlight current line
+set cursorline
+
+" Mark line length limit
 set colorcolumn=120
-set wrap            " Wrap long lines
+
+" Wrap long lines
+set wrap
 
 " Show absolute and relative line numbers together (Hybrid line numbers)
 set number
@@ -72,7 +81,7 @@ set relativenumber
 set wildmenu wildoptions=pum
 
 " ==========================================
-" 4. TEXT FORMATTING & INDENTATION
+" TEXT FORMATTING & INDENTATION
 " ==========================================
 " Smart tab handling (4 spaces)
 set tabstop=4
@@ -85,7 +94,7 @@ set autoindent
 set smartindent
 
 " ==========================================
-" 5. SEARCH & MATCHES
+" SEARCH & MATCHES
 " ==========================================
 set ignorecase
 set smartcase
@@ -102,7 +111,7 @@ if executable('rg')
 endif
 
 " ==========================================
-" 6. WHITESPACE & VISUALS
+" WHITESPACE & VISUALS
 " ==========================================
 " Make non-printable characters visible
 set list
@@ -117,7 +126,7 @@ highlight TrailingWhiteSpace ctermbg=red guibg=red
 autocmd BufWinEnter * call clearmatches() | call matchadd('TrailingWhiteSpace', '\s\+$')
 
 " ==========================================
-" 7. AUTOCOMMANDS & COMPILER
+" AUTOCOMMANDS & COMPILER
 " ==========================================
 " Treat colons as keywords ONLY in C++
 autocmd FileType cpp setlocal iskeyword+=:
@@ -129,7 +138,7 @@ compiler gcc
 set showcmd
 
 " ==========================================
-" 8. KEY MAPPINGS
+" KEY MAPPINGS
 " ==========================================
 " Place search result to the middle of the screen
 nnoremap n nzz
