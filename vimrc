@@ -22,7 +22,7 @@ if !has('nvim') && has('terminal')
 endif
 
 " Trigger autoread when changing buffers or holding the cursor still
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * silent! checktime
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * nested silent! checktime
 
 " Filetype support (Combines detection, plugins, and indent)
 filetype plugin indent on
