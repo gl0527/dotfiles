@@ -155,7 +155,7 @@ nnoremap <silent> <leader>h :noh<CR>
 nnoremap <leader>l :set list!<CR>
 
 " Grep
-nnoremap <leader>g :grep!  \| copen<C-Left><C-Left><Left>
+nnoremap <leader>g :grep! -F '' \| botright copen 5<C-Left><C-Left><C-Left><C-Left><C-Left><Right>
 
 " Grep word under cursor
-nnoremap <leader>G :grep! <cword><CR>:copen<CR>
+nnoremap <leader>G :grep! -F <cword><CR>:botright copen 5<CR>
