@@ -159,3 +159,15 @@ nnoremap <leader>g :grep! -F '' \| botright copen 5<C-Left><C-Left><C-Left><C-Le
 
 " Grep word under cursor
 nnoremap <leader>G :grep! -F <cword><CR>:botright copen 5<CR>
+
+" Navigate the quickfist list items
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprev<CR>
+
+" Jump to the first and last items in the quickfix list
+nnoremap ]Q :clast<CR>
+nnoremap [Q :cfirst<CR>
+
+" Jump to the next / previous file in the quickfix list
+nnoremap ]f :cnfile<CR>
+nnoremap [f :cNfile<CR>
