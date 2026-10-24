@@ -131,8 +131,8 @@ autocmd BufWinEnter * call clearmatches() | call matchadd('TrailingWhiteSpace', 
 " Treat colons as keywords ONLY in C++
 autocmd FileType cpp setlocal iskeyword+=:
 
-" Set compiler
-compiler gcc
+" Set build environment for C/C++
+autocmd FileType c,cpp compiler gcc
 
 " Show command in the last line of the screen
 set showcmd
