@@ -7,6 +7,9 @@ let mapleader = " "
 " Prevent character encoding issues
 set encoding=utf-8
 
+" Disable modelines to prevent arbitrary code execution from untrusted files
+set nomodeline
+
 " Set the idle time trigger (2 seconds)
 set updatetime=2000
 
@@ -20,9 +23,6 @@ if !has('nvim') && has('terminal')
   execute "set <FocusGained>=\<Esc>[I"
   execute "set <FocusLost>=\<Esc>[O"
 endif
-
-" Trigger autoread when changing buffers or holding the cursor still
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * nested silent! checktime
 
 " Filetype support (Combines detection, plugins, and indent)
 filetype plugin indent on
@@ -54,12 +54,17 @@ set t_vb=
 " UI & COLORS
 " ==========================================
 set t_Co=256
-set termguicolors
+if has('termguicolors')
+  set termguicolors
+endif
 set background=dark
-colorscheme catppuccin
 
-" Always show statusline
+" Safely load catppuccin (prevents crash if colorscheme is missing)
+silent! colorscheme catppuccin
+
+" Always show statusline & command bar space
 set laststatus=2
+set showcmd
 
 " Show cursor position
 set ruler
@@ -78,7 +83,12 @@ set number
 set relativenumber
 
 " Visual autocomplete for command menu
-set wildmenu wildoptions=pum
+set wildmenu
+set wildoptions=pum
+
+" Make splitting behavior feel natural
+set splitright
+set splitbelow
 
 " ==========================================
 " TEXT FORMATTING & INDENTATION
@@ -123,26 +133,32 @@ highlight NonText ctermfg=238 guifg=#444444
 
 " Highlight trailing whitespaces with red background
 highlight TrailingWhiteSpace ctermbg=red guibg=red
-autocmd BufWinEnter * call clearmatches() | call matchadd('TrailingWhiteSpace', '\s\+$')
 
 " ==========================================
-" AUTOCOMMANDS & COMPILER
+" AUTOCOMMANDS (Wrapped safely in groups)
 " ==========================================
-" Treat colons as keywords ONLY in C++
-autocmd FileType cpp setlocal iskeyword+=:
+augroup MyVimrcAutocommands
+  autocmd!
 
-" Set build environment for C/C++
-autocmd FileType c,cpp compiler gcc
+  " Trigger autoread when changing buffers or holding the cursor still
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * nested silent! checktime
 
-" Show command in the last line of the screen
-set showcmd
+  " Highlight trailing whitespace dynamically
+  autocmd BufWinEnter * call matchadd('TrailingWhiteSpace', '\s\+$')
+
+  " Treat colons as keywords ONLY in C++
+  autocmd FileType cpp setlocal iskeyword+=:
+
+  " Set build environment for C/C++
+  autocmd FileType c,cpp compiler gcc
+augroup END
 
 " ==========================================
 " KEY MAPPINGS
 " ==========================================
-" Place search result to the middle of the screen
-nnoremap n nzz
-nnoremap N Nzz
+" Keep search results centered on the screen
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " Move by visual lines rather than logical lines (great for wrapped lines)
 nnoremap j gj
@@ -154,20 +170,17 @@ nnoremap <silent> <leader>h :noh<CR>
 " Toggle visible whitespace characters easily
 nnoremap <leader>l :set list!<CR>
 
-" Grep
+" Grep shortcuts with quickfix window focus fixes
 nnoremap <leader>g :grep! -F '' \| botright copen 5<C-Left><C-Left><C-Left><C-Left><C-Left><Right>
-
-" Grep word under cursor
 nnoremap <leader>G :grep! -F <cword><CR>:botright copen 5<CR>
 
-" Navigate the quickfist list items
+" Quickfix navigation
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprev<CR>
-
-" Jump to the first and last items in the quickfix list
 nnoremap ]Q :clast<CR>
 nnoremap [Q :cfirst<CR>
-
-" Jump to the next / previous file in the quickfix list
 nnoremap ]f :cnfile<CR>
 nnoremap [f :cNfile<CR>
+
+" Toggle the quickfix window open/closed entirely using leader+q
+nnoremap <expr> <leader>q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen 5<CR>' : ':cclose<CR>'
