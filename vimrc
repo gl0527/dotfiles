@@ -92,9 +92,8 @@ set colorcolumn=120
 " Wrap long lines
 set wrap
 
-" Show absolute and relative line numbers together (Hybrid line numbers)
+" Show absolute line numbers
 set number
-set relativenumber
 
 " Visual autocomplete for command menu
 set wildmenu
