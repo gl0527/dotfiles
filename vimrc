@@ -31,13 +31,21 @@ filetype plugin indent on
 syntax on
 
 " ==========================================
-" PERFORMANCE & HISTORY
+" PERFORMANCE, RECOVERY & HISTORY
 " ==========================================
 " Do not keep any history, backups, or swapfiles
 set viminfo='0,:0,<0,@0,f0
 set nobackup
 set nowb
 set noswapfile
+
+" Enable safe persistent undo instead of messy swapfiles
+if has('undofile')
+  " Create the directory if it doesn't exist (~/.vim/undo)
+  call mkdir(expand('~/.vim/undo'), 'p', 0700)
+  set undodir=~/.vim/undo
+  set undofile
+endif
 
 " Don't lose unsaved changes when opening a new file
 set hidden
