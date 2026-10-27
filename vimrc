@@ -45,6 +45,12 @@ set hidden
 " Don't update the display while executing macros
 set lazyredraw
 
+" Assume a fast terminal connection
+set ttyfast
+
+" Turn off syntax hightlighting for lines longer than 500 characters
+set synmaxcol=500
+
 " Disable bells
 set noerrorbells
 set novisualbell
