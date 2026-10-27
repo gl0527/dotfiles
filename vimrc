@@ -134,6 +134,9 @@ highlight NonText ctermfg=238 guifg=#444444
 " Highlight trailing whitespaces with red background
 highlight TrailingWhiteSpace ctermbg=red guibg=red
 
+" Match trailing whitespaces
+match TrailingWhiteSpace /\s\+$/
+
 " ==========================================
 " AUTOCOMMANDS (Wrapped safely in groups)
 " ==========================================
@@ -142,9 +145,6 @@ augroup MyVimrcAutocommands
 
   " Trigger autoread when changing buffers or holding the cursor still
   autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * nested silent! checktime
-
-  " Highlight trailing whitespace dynamically
-  autocmd BufWinEnter * call matchadd('TrailingWhiteSpace', '\s\+$')
 
   " Treat colons as keywords ONLY in C++
   autocmd FileType cpp setlocal iskeyword+=:
