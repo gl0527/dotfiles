@@ -194,3 +194,21 @@ nnoremap [f :cNfile<CR>
 
 " Toggle the quickfix window open/closed entirely using leader+q
 nnoremap <expr> <leader>q empty(filter(getwininfo(), 'v:val.quickfix')) ? ':copen 5<CR>' : ':cclose<CR>'
+
+" Auto-close brackets and quotes, placing the cursor in the middle
+inoremap ( ()<Left>
+inoremap [ []<Left>
+inoremap { {}<Left>
+inoremap " ""<Left>
+inoremap ' ''<Left>
+inoremap ` ``<Left>
+inoremap < <><Left>
+
+" Overwrite the closing character to skip ahead if it already exists
+inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ')' ? "\<Right>" : ")"
+inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == ']' ? "\<Right>" : "]"
+inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == '}' ? "\<Right>" : "}"
+inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == '"' ? "\<Right>" : "\"\"\<Left>"
+inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "'" ? "\<Right>" : "''\<Left>"
+inoremap <expr> ` strpart(getline('.'), col('.')-1, 1) == '`' ? "\<Right>" : "``\<Left>"
+inoremap <expr> > strpart(getline('.'), col('.')-1, 1) == '>' ? "\<Right>" : ">`\<Left>"
