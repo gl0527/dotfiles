@@ -97,6 +97,7 @@ set number
 
 " Visual autocomplete for command menu
 set wildmenu
+set wildmode=longest:full,full
 set wildoptions=pum
 
 " Make splitting behavior feel natural
