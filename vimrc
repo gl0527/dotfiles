@@ -127,8 +127,18 @@ set backspace=indent,eol,start
 
 " Set up ripgrep if available
 if executable('rg')
-  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+  set grepprg=rg\ --vimgrep\ --smart-case
   set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+  function! RgFind(cmdarg, cmdcomplete)
+      let l:files = systemlist('rg --files')
+      if empty(a:cmdarg)
+          return l:files
+      endif
+      return matchfuzzy(l:files, a:cmdarg)
+  endfunction
+
+  set findfunc=RgFind
 endif
 
 " ==========================================
@@ -184,6 +194,12 @@ nnoremap <leader>l :set list!<CR>
 " Grep shortcuts with quickfix window focus fixes
 nnoremap <leader>g :grep! -F '' \| botright copen 5<C-Left><C-Left><C-Left><C-Left><C-Left><Right>
 nnoremap <leader>G :grep! -F <cword><CR>:botright copen 5<CR>
+
+" Fuzzy file find
+nnoremap <leader>f :find 
+
+" Fuzzy file find based on current word
+nnoremap <leader>F :find <cword><TAB>
 
 " Quickfix navigation
 nnoremap ]q :cnext<CR>
