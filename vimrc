@@ -199,7 +199,7 @@ nnoremap <leader>G :grep! -F <cword><CR>:botright copen 5<CR>
 nnoremap <leader>f :find 
 
 " Fuzzy file find based on current word
-nnoremap <leader>F :find <cword><TAB>
+nnoremap <leader>F :find <C-r><C-w>
 
 " Quickfix navigation
 nnoremap ]q :cnext<CR>
